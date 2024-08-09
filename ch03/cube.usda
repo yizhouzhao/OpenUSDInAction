@@ -2,7 +2,7 @@
 
 def Xform "World"
 {
-    def Mesh "Cube_01" (
+    def Mesh "Cube" (
         prepend apiSchemas = ["MaterialBindingAPI"]
     )
     {
