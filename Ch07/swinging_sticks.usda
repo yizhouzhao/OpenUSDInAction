@@ -18,7 +18,7 @@
                 double3 position = (0, 0, 50000)
                 double radius = 197.9642822265625
             }
-            string boundCamera = "/root/Camera/Camera_01"
+            string boundCamera = "/OmniverseKit_Persp"
         }
         dictionary navmeshSettings = {
             double agentHeight = 180
@@ -28,7 +28,7 @@
             double voxelCeiling = 460
         }
         dictionary omni_layer = {
-            string authoring_layer = "./swinging_sticks_TEST.usda"
+            string authoring_layer = "./swinging_sticks.usda"
             dictionary locked = {
             }
             dictionary muteness = {
@@ -73,7 +73,9 @@
     }
     defaultPrim = "root"
     doc = "Blender v3.4.0 Alpha"
+    endTimeCode = 0
     metersPerUnit = 0.01
+    startTimeCode = -1
     upAxis = "Z"
 )
 
@@ -832,38 +834,6 @@ def Xform "root" (
             double3 xformOp:scale = (0.3, 0.15, 0.3)
             double3 xformOp:translate = (0, 15, 7.500000111758709)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateXYZ", "xformOp:scale"]
-        }
-    }
-
-    def Scope "Camera"
-    {
-        def Camera "Camera_01" (
-            hide_in_stage_window = false
-            no_delete = false
-        )
-        {
-            float4[] clippingPlanes = []
-            float2 clippingRange = (1, 10000000)
-            float exposure = 0
-            float focalLength = 18.147562
-            float focusDistance = 400
-            float fStop = 0
-            float horizontalAperture = 20.955
-            float horizontalApertureOffset = 0
-            bool omni:kit:cameraLock = 1
-            custom vector3d omni:kit:centerOfInterest = (0, 0, -784.6897432622685)
-            token projection = "perspective"
-            uniform token purpose = "default"
-            double shutter:close = 0
-            double shutter:open = 0
-            uniform token stereoRole = "mono"
-            float verticalAperture = 15.2908
-            float verticalApertureOffset = 0
-            token visibility = "inherited"
-            float3 xformOp:rotateYXZ = (88.44604, -5.4976796e-15, 0.76383346)
-            float3 xformOp:scale = (0.01, 0.01, 0.01)
-            double3 xformOp:translate = (0.038927942168931556, -7.780301244731643, 2.141020377555178)
-            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:rotateYXZ", "xformOp:scale"]
         }
     }
 }
