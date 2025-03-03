@@ -20,15 +20,19 @@ stage.Save()
 ```
 Get all three kinds of transform information from the cube:
 ```python
-xform = UsdGeom.Xformable(object_prim)  
-time = Usd.TimeCode.Default() 
-world_transform: Gf.Matrix4d = xform.ComputeLocalToWorldTransform(time)
-translation: Gf.Vec3d = world_transform.ExtractTranslation()
-rotation: Gf.Rotation = world_transform.ExtractRotation()
-scale: Gf.Vec3d = Gf.Vec3d(
-	*(v.GetLength() for v in world_transform.ExtractRotationMatrix())   
-)
-print(translation, rotation, scale)
+for op in xform.GetOrderedXformOps():    #A
+    op_type = op.GetOpType()    #B
+    op_value = op.Get()   	#C
+    print(f"Operation: {op_type}, Value: {op_value}")    #D
+
+```
+Retrieve the specific rotation only
+```python 
+for op in xform.GetOrderedXformOps():	
+	if op.GetOpType() == UsdGeom.XformOp.TypeRotateXYZ:	
+    	authored_rotation = op.Get(time)	
+    	print("Authored Rotation:", authored_rotation)	
+    	break	
 ```
 Reset translation:
 ```python
