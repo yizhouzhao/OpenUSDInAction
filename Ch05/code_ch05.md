@@ -10,7 +10,7 @@ A function to create a Prim by type
 def create_prim(stage: Usd.Stage, prim_path: str, prim_type: str):    
     return stage.DefinePrim(prim_path, prim_type)    
 ```
-User the function to create an Xform
+Use the function to create an Xform
 ```python
 create_prim(stage, "/World/Xform", "Xform")
 ```
@@ -94,17 +94,17 @@ xform.AddRotateXYZOp().Set(Gf.Vec3d(45, 0, 0))
 Use a quaternion to represent the orientation of an Xform
 ```python
 xform.ClearXformOpOrder()     
-w, x, y, z = (1, 0, 0, 0)    
+w, x, y, z = (0.92, 0.38, 0, 0)   
 xform.AddOrientOp().Set(Gf.Quatf(w, x, y, z))    
 ```
 ### 5.2.3 Transform and Rotation Matrices
 Add a transform matrix 
 ```python
-matrix = Gf.Matrix4d(1, 0, 0, 0,
-    0, 1, 0, 0,
+matrix = Gf.Matrix4d(0.707, -0.707, 0, 0,
+    0.707, 0.707, 0, 0,
     0, 0, 1, 0,
-    100,200,0,1)   
-xform.MakeMatrixXform().Set(matrix)   
+    100,200,0,1)    
+xform.MakeMatrixXform().Set(matrix)     
 ```
 ### Obtaining World & Local Transforms
 Lising 5.2 Get the World Transform Matrix
