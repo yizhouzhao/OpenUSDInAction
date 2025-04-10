@@ -8,7 +8,7 @@
             }
             dictionary Perspective = {
                 double3 position = (28.953392846344492, 690.3644696172614, 1125.2937607276062)
-                double3 target = (-59.35666283000544, -359.86157218176095, -330.6609920066039)
+                double3 target = (-59.35666283000544, -359.8615721817612, -330.6609920066039)
             }
             dictionary Right = {
                 double3 position = (-500, 0, 0)
@@ -94,9 +94,9 @@ def Xform "World" (
 
     def Scope "materials"
     {
-        def Material "Tile_Pattern"
+        def Material "Floor_Material"
         {
-            token outputs:surface.connect = </World/materials/Tile_Pattern/preview_Principled_BSDF.outputs:surface>
+            token outputs:surface.connect = </World/materials/Floor_Material/preview_Principled_BSDF.outputs:surface>
             custom string userProperties:blender:data_name = "Floor_Pattern"
 
             def Shader "preview_Principled_BSDF"
@@ -129,7 +129,7 @@ def Xform "World" (
                     hidden = false
                     renderType = "color"
                 )
-                color3f inputs:diffuseColor.connect = </World/materials/Tile_Pattern/preview_Image_Texture.outputs:rgb>
+                color3f inputs:diffuseColor.connect = </World/materials/Floor_Material/preview_Image_Texture.outputs:rgb>
                 float inputs:ior = 1.45 (
                     customData = {
                         float default = 1.5
@@ -164,7 +164,7 @@ def Xform "World" (
                     }
                     hidden = false
                 )
-                float3 inputs:normal.connect = </World/materials/Tile_Pattern/preview_Image_Texture_002.outputs:rgb>
+                float3 inputs:normal.connect = </World/materials/Floor_Material/preview_Image_Texture_002.outputs:rgb>
                 float inputs:opacity = 1 (
                     customData = {
                         float default = 1
@@ -185,7 +185,7 @@ def Xform "World" (
                     }
                     hidden = false
                 )
-                float inputs:roughness.connect = </World/materials/Tile_Pattern/preview_Image_Texture_001.outputs:r>
+                float inputs:roughness.connect = </World/materials/Floor_Material/preview_Image_Texture_001.outputs:r>
                 token outputs:surface
             }
 
@@ -214,7 +214,7 @@ def Xform "World" (
                     }
                     hidden = false
                 )
-                float2 inputs:st.connect = </World/materials/Tile_Pattern/preview_UV_Map.outputs:result>
+                float2 inputs:st.connect = </World/materials/Floor_Material/preview_UV_Map.outputs:result>
                 token inputs:wrapS = "repeat" (
                     customData = {
                         token default = "useMetadata"
@@ -276,7 +276,7 @@ def Xform "World" (
                     }
                     hidden = false
                 )
-                float2 inputs:st.connect = </World/materials/Tile_Pattern/preview_UV_Map.outputs:result>
+                float2 inputs:st.connect = </World/materials/Floor_Material/preview_UV_Map.outputs:result>
                 token inputs:wrapS = "repeat" (
                     customData = {
                         token default = "useMetadata"
@@ -331,7 +331,7 @@ def Xform "World" (
                     }
                     hidden = false
                 )
-                float2 inputs:st.connect = </World/materials/Tile_Pattern/preview_UV_Map.outputs:result>
+                float2 inputs:st.connect = </World/materials/Floor_Material/preview_UV_Map.outputs:result>
                 token inputs:wrapS = "repeat" (
                     customData = {
                         token default = "useMetadata"
@@ -374,7 +374,7 @@ def Xform "World" (
             float3[] extent = [(-5, -5, 0), (5, 5, 0)]
             int[] faceVertexCounts = [4]
             int[] faceVertexIndices = [0, 1, 3, 2]
-            rel material:binding = </World/materials/Tile_Pattern>
+            rel material:binding = </World/materials/Floor_Material>
             normal3f[] normals = [(0, 0, 1), (0, 0, 1), (0, 0, 1), (0, 0, 1)] (
                 interpolation = "faceVarying"
             )
